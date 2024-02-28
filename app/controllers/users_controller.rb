@@ -1,21 +1,25 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def account_show
     @user = current_user
-    @room = Room.new
+    #@room = Room.new
   end
 
-  def profile
+  def profile_show
+    @user = current_user
+  end
+
+  def profile_edit
     @profile_user = current_user
   end
 
-  def update
+  def profile_update
     @user = current_user
-    if @user.update(user_params)
-      redirect_to profile_path
+    if current_user.update(user_params)
+      redirect_to profile_show_path
     else
-      render :edit
+      render 'profile_edit'
     end
   end
 

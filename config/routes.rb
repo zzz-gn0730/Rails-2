@@ -7,10 +7,17 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get 'users' => redirect('/users/edit')
+  get 'users/profile_update' => redirect('/users/profile_edit')
+
   get 'errors/reservation_error'
   get 'search/index'
 
-  resources :users, :profiles, only: [:show, :edit, :update]
+  get 'users/account_show', to: 'users#account_show', as: 'account_show'
+  get 'users/profile_show', to: 'users#profile_show', as: 'profile_show'
+  get 'users/profile_edit', to: 'users#profile_edit', as: 'profile_edit'
+  patch 'users/profile_update', to: 'users#profile_update', as: 'profile_update'
+
   resources :rooms do
     collection do
       get 'search', to: 'search#search', as: 'search'

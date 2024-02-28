@@ -8,10 +8,10 @@
     <div class="card-body">
       <div class="row mb-5">
         <div class="col text-start">
-          <%= link_to "Account", user_path(current_user), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          <%= link_to "Account", account_show_path, class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
         </div>
         <div class="col text-end">
-          <%= link_to "Profile", profile_path, class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          <%= link_to "Profile", profile_show_path, class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto mt-4 mb-3">
-        <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-sm  btn-outline-secondary" %>
+        <%= link_to "Edit Profile", profile_edit_path, class: "btn btn-sm  btn-outline-secondary" %>
       </div>
     </div>
   </div>

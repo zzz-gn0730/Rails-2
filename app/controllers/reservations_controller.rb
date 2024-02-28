@@ -70,7 +70,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:room_id, :avatar, :name, :total_fee, :detail, :check_in, :check_out, :num, :stay_days)
+    params.require(:reservation).permit(:room_id, :total_fee, :check_in, :check_out, :num, :stay_days)
   end
 end
 
