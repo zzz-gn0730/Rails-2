@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def account_show
     @user = current_user
-    #@room = Room.new
   end
 
   def profile_show
