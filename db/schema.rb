@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2024_02_24_060957) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "stay_days"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.integer "room_id"
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
@@ -78,13 +78,10 @@ ActiveRecord::Schema.define(version: 2024_02_24_060957) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
-    t.string "image"
-    t.string "icon"
-    t.string "username"
     t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -93,5 +90,4 @@ ActiveRecord::Schema.define(version: 2024_02_24_060957) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reservations", "rooms"
-  add_foreign_key "reservations", "users"
 end
