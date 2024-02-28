@@ -22,8 +22,6 @@ class Reservation < ApplicationRecord
     stay_days * fee * num
   end
 
-  mount_uploader :avatar, AvatarUploader
-
   private
 
   def validate_check_in_date

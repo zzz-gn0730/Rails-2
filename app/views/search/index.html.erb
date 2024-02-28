@@ -7,11 +7,11 @@
     <p class="text-center">Total rooms found: <%= @total_count %></p>
 
     <div class="row justify-content-center mb-3">
-      <%= form_tag search_index_path, method: :get, class: "d-flex justify-content-center" do %>
+      <%= form_with url: search_index_path, method: :get, class: "d-flex justify-content-center" do |f| %>
         <div class="input-group mb-3">
-          <%= text_field_tag :query, params[:query], class: "form-control me-2 w-auto", placeholder: "Search by room name or detail" %>
-            <%= text_field_tag :location, params[:location], class: "form-control me-2 w-auto",  placeholder: "Search by location" %>
-          <%= submit_tag "Search", class: "btn btn-outline-secondary" %>
+          <%= f.text_field :query, class: "form-control me-2 w-auto", placeholder: "Search by room name or detail", value: params[:query] %>
+          <%= f.text_field :location, class: "form-control me-2 w-auto",  placeholder: "Search by location", value: params[:location] %>
+          <%= f.submit "Search", class: "btn btn-outline-secondary" %>
         </div>
       <% end %>
     </div>
@@ -20,13 +20,13 @@
       <% @rooms.each do |room| %>
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
-            <% if room.avatar? %>
-              <%= image_tag room.avatar_url, class: "card-img-top" %>
+            <% if room.room_image? %>
+              <%= image_tag room.room_image_url, class: "card-img-top" %>
             <% else %>
               <%= image_tag "room-default-image.png", class: "card-img-top" %>
             <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%= link_to room.name, room_path(room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></h5>
+              <h5 class="card-title"><%= link_to room.room_name, room_path(room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></h5>
               <p class="card-text">Address: <%= room.address %></p>
               <p class="card-text">Detail: <%= room.detail %></p>
               <p class="card-text">Fee: <%= number_with_delimiter(room.fee) %></p>

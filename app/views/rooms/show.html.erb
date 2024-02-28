@@ -11,8 +11,8 @@
     </div>
 
     <div class="card">
-      <% if @room.avatar_url.present? %>
-        <%= image_tag @room.avatar_url, class: "card-img-top img-fluid" %>
+      <% if @room.room_image_url.present? %>
+        <%= image_tag @room.room_image_url, class: "card-img-top img-fluid" %>
       <% else %>
         <%= image_tag "room-default-image.png", class: "card-img-top img-fluid" %>
       <% end %>
@@ -33,7 +33,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <strong>Name of facility:</strong>
-              <div><%= @room.name %></div>
+              <div><%= @room.room_name %></div>
             </div>
             <div class="form-group">
               <strong>Address:</strong>

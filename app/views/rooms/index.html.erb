@@ -21,14 +21,14 @@
       <% @rooms.each do |room| %>
         <tr>
           <td class="align-middle">
-            <% if room.avatar? %>
-              <%= image_tag room.avatar_url, size: "130x80" %>
+            <% if room.room_image? %>
+              <%= image_tag room.room_image_url, size: "130x80" %>
             <% else %>
               <%= image_tag "room-default-image.png", size: "130x80" %>
             <% end %>
           </td>
           <td class="align-middle">
-            <%= link_to room.name, room_path(room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+            <%= link_to room.room_name, room_path(room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
           </td>
           <td class="align-middle">
             <%= room.detail %>

@@ -23,14 +23,14 @@
       <% @reservations.each do |reservation| %>
         <tr>
           <td class="align-middle">
-            <% if reservation.room.avatar? %>
-              <%= image_tag reservation.room.avatar_url, size: "130x80" %>
+            <% if reservation.room.room_image? %>
+              <%= image_tag reservation.room.room_image_url, size: "130x80" %>
             <% else %>
               <%= image_tag "room-default-image.png", size: "130x80" %>
             <% end %>
           </td>
           <td class="align-middle">
-            <%= link_to reservation.room.name, room_path(reservation.room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+            <%= link_to reservation.room.room_name, room_path(reservation.room), class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
           </td>
           <td class="align-middle">
             <%= reservation.room.detail %>
